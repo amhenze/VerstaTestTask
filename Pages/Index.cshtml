@@ -1,0 +1,19 @@
+﻿@page
+@using verstaTest.Data
+@using verstaTest.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    using OrderContext context = new OrderContext();
+    var orders = context.Orders
+                        .OrderBy(p => p.PickupDate);
+}
+
+<div class="text-center">
+    <h1 class="display-4">Список всех заказов</h1>
+    @foreach(Order order in orders)
+    {
+        string link = "https://localhost:7268/ViewOrder?id=" + order.Id;
+        <a>Заказ </a><a href=@link>@order.Id</a><a> из города @order.SenderCity в город @order.ShippingCity по адресу @order.RecipientsAddress дата и время прибытия(@order.PickupDate)</a><p></p>
+    }
+</div>

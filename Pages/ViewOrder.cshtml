@@ -1,0 +1,51 @@
+﻿@page
+@model verstaTest.Pages.ViewOrderModel
+
+@{
+    ViewData["Title"] = "ViewOrder";
+}
+
+<h1>Order id @Model.Order.Id</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Order.Id" />
+            <div class="form-group">
+                <label asp-for="Order.SenderCity" class="control-label"></label>
+                <input readonly asp-for="Order.SenderCity" class="form-control" />
+                <span asp-validation-for="Order.SenderCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.SendersAddress" class="control-label"></label>
+                <input readonly asp-for="Order.SendersAddress" class="form-control" />
+                <span asp-validation-for="Order.SendersAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.ShippingCity" class="control-label"></label>
+                <input readonly asp-for="Order.ShippingCity" class="form-control" />
+                <span asp-validation-for="Order.ShippingCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.RecipientsAddress" class="control-label"></label>
+                <input readonly asp-for="Order.RecipientsAddress" class="form-control" />
+                <span asp-validation-for="Order.RecipientsAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Weight" class="control-label"></label>
+                <input readonly asp-for="Order.Weight" class="form-control" />
+                <span asp-validation-for="Order.Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.PickupDate" class="control-label"></label>
+                <input readonly asp-for="Order.PickupDate" class="form-control" />
+                <span asp-validation-for="Order.PickupDate" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
